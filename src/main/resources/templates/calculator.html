@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Scientific Calculator</title>
+</head>
+<body>
+<div style="border:2px solid green;padding:10px;border:10%">
+<h1 style="text-align:center">Scientific Calculator</h1>
+<form action="/calculate" method="post">
+    <label for="operation">Select Operation:</label>
+    <select name="operation" id="operation">
+        <option value="sin">sin</option>
+        <option value="cos">cos</option>
+        <option value="tan">tan</option>
+        <option value="sqrt">sqrt</option>
+        <option value="log">log</option>
+        <option value="ln">ln</option>
+        <option value="exp">exp</option>
+        <option value="power">power</option>
+        <option value="factorial">factorial</option>
+        <option value="addComplex">addComplex</option>
+        <option value="subtractComplex">subtractComplex</option>
+        <option value="mean">mean</option>
+        <option value="median">median</option>
+        <option value="standardDeviation">standardDeviation</option>
+    </select>
+
+    <label for="input1">Input 1:</label>
+    <input type="text" name="input1" id="input1" required>
+
+    <label for="input2">Input 2 (Optional):</label>
+    <input type="text" name="input2" id="input2">
+
+    <button type="submit">Calculate</button>
+</form>
+
+<h2>Result</h2>
+<p th:text="${result}">0.0</p>
+
+<h2>Calculation History</h2>
+<ul>
+    <li th:each="historyItem : ${history}">
+        <span th:text="${historyItem.calculation}"></span> = <span th:text="${historyItem.result}"></span>
+        <br>
+    </li>
+</ul>
+    <div
+</body>
+</html>
